@@ -1,0 +1,10 @@
+---
+- name: Snipe It Clone 
+  git:
+      repo: https://github.com/snipe/snipe-it.git
+      dest: /var/www/snipeit
+      update: no
+-  name: Copy file with owner and permissions
+   copy:
+      src: .env
+      dest: /var/www/snipeit/.env

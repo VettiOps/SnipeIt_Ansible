@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - include_tasks: apache2.yml
+  - include_tasks: Mariadb.yml
+  - include_tasks: php.yml
+  - include_tasks: mysql_secure_installation.yml
+  - include_tasks: create_database.yml
+  - include_tasks: composer.yml
+  - include_tasks: snipe_clone.yml
+  - include_tasks: composer_install.yml
+  - include_tasks: www-data.yml
+  - include_tasks: copy_files.yml
+  - include_tasks: gen_key.yml
+  - include_tasks: enable_snipeit.yml

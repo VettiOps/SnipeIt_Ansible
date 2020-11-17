@@ -1,0 +1,6 @@
+---
+- name: Permission 1
+  shell: sudo chown -R www-data:www-data /var/www/snipeit/
+
+- name: Permission 2
+  shell: sudo chmod -R 755 /var/www/snipeit/

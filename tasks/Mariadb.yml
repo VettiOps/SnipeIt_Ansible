@@ -1,0 +1,6 @@
+---
+- name: Installing Mariadb
+  apt: name={{item}}
+  with_items:
+    - mariadb-server 
+    - mariadb-client

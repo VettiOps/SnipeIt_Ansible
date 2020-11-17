@@ -1,0 +1,13 @@
+---
+-  name: replace .env
+   copy:
+      src: .env
+      dest: /var/www/snipeit/.env
+-  name: replace php.ini
+   copy:
+      src: php.ini
+      dest: /etc/php/7.2/apache2/php.ini
+-  name: replace snipeit.conf
+   copy:
+      src: snipeit.conf
+      dest: /etc/apache2/sites-available/snipeit.conf

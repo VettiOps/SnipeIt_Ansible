@@ -1,0 +1,17 @@
+---
+  - name: Generating Key
+    shell: sudo a2enmod rewrite
+    args:
+      chdir: /etc/apache2/sites-available/
+  
+  - name: Ensite
+    shell: sudo a2ensite snipeit.conf
+    args:
+      chdir: /etc/apache2/sites-available/
+  - name: Dissite
+    shell: sudo a2dissite 000-default.conf
+    args:
+      chdir: /etc/apache2/sites-available/
+  
+  - name: Restart apache
+    service: name=apache2 state=restarted

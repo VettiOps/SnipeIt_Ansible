@@ -1,0 +1,5 @@
+---
+- name: Generating Key
+  shell: sudo php artisan key:generate --force
+  args:
+    chdir: /var/www/snipeit/
