@@ -1,4 +1,15 @@
 ---
+- name: Installing dependencies for Mariadb
+  apt: name=software-properties-common
+
+- name: Adding key for Mariadb
+  shell: sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
+
+- name: Adding Repo for Mariadb
+  apt_repository:
+   repo: deb [arch=amd64,arm64,ppc64el] https://mirror.dogado.de/mariadb/repo/10.3/ubuntu bionic main
+   state: present
+
 - name: Installing Mariadb
   apt: name={{item}}
   with_items:

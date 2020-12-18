@@ -1,5 +1,8 @@
 ---
   - name: Install Apache2
     apt: name=apache2 state=latest
-  - name: Restart apache
-    service: name=apache2 state=restarted
+
+  - name: ensure apache is running
+    service:
+      name: apache2
+      state: restarted
