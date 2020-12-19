@@ -9,7 +9,7 @@
   - name: Update apt-get repo and cache
     apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
   
-  - name: Install PHP Extensions
+  - name: Install PHP Extensions and PyMysql
     apt: name={{item}} state=latest
     with_items:
       - php7.2
@@ -28,3 +28,4 @@
       - php7.2-zip
       - php7.2-sqlite3
       - php7.2-ldap
+      - python-mysqldb
