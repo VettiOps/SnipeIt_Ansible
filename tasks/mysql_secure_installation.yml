@@ -1,10 +1,14 @@
 ---
 
-- name: Update
-  shell: sudo apt update
-
+- name: Run the equivalent of "apt-get update" as a separate step
+  apt:
+    update_cache: yes
+    
+- name: Add .my.cnf
+  copy: src=my.cnf.j2 dest=/root/.my.cnf owner=root group=root mode=0600
+      
 - name: Set the root password 
-  mysql_user: login_user=root login_password="" user=root password="snipeit1"
+  mysql_user: login_user=root login_password="snipeit1" user=root password="snipeit1"
 
 - name: Secure the root user for IPV6 localhost (::1)
   mysql_user: login_user=root login_password="snipeit1" user=root password="snipeit1" host="::1"
